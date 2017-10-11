@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hschool.mapper.UserMapper">
+ 
+  <select id="findUserInfo" resultType="com.hschool.model.User">
+    select id ,username,password from user limit 0,1;
+  </select>
+  <select id="findUserInfoByUserName" resultType="int" parameterType="String">
+    select count(*)  from user where username=#{username}#;
+  </select>
+  <select id="findUserInfoByUserNameAndPasswprd" resultType="com.hschool.model.User" parameterType="com.hschool.model.User">
+    select * from user where username=#{username}# and password=#{password}# limit 0,1;
+  </select>
+ 
+</mapper>

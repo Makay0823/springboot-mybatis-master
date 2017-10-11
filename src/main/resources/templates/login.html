@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ><!-- xmlns:th="http://www.thymeleaf.org" -->
+<head> 
+    <title>Welcome Login</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <script type="text/javascript" src="js/common/jquery-1.11.2.min.js" ></script><!-- th:src="@{js/common/jquery-1.11.2.min.js}" -->
+    <!-- <script type="text/javascript" th:src="@{js/base_tool.js}" ></script> -->
+    <!-- <script type="text/javascript" src="../static/js/login/login.js"></script> -->
+    <script type="text/javascript">
+    	function go(){
+			alert(1);
+			var username = $("#username").val();
+			var password = $("#password").val();
+			alert(baseTools.baseUrl);
+			alert(username);
+			$.ajax({
+				url : baseTools.baseUrl+"/goLogin",
+				data : {"username":username,
+						"password" :password},
+				type : "POST",
+				async : false, 
+				success : function(data) {
+					alert(data.code);
+				}
+			});
+		}
+    </script>
+</head>
+<body>
+    <form action="">
+    	<table>
+    	<thead><h2></h2>
+    	</thead>
+    	<tr>
+    	<td>user</td>
+    	<td><input id="username" value="" type="text" /></td>
+    	<td>password</td>
+    	<td><input id="password" value="" type="text" /></td>
+    	<td></td>
+    	<td>
+    	<button onclick="go();">  submit</button>
+    	</td>
+    	
+    	</tr>
+    	</table>
+    
+    </form>
+</body>
+</html>
